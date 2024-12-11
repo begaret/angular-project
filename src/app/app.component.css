@@ -1,0 +1,14 @@
+*
+{
+  font-family: monospace;
+  color: white;
+}
+
+.content
+{
+  min-width: 100vw;
+  min-height: 100vh;
+
+  background-color: black;
+  margin: 0 auto;
+}
