@@ -1,0 +1,31 @@
+@import '../../data.css';
+
+footer
+{
+    border-top: thin solid var(--border-color);
+    margin-top: auto;
+    background-color: var(--bg-color-footer);
+
+    width: auto;
+    height: 8rem;
+
+    font-size: smaller;
+	
+	padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+footer > img
+{
+    width: 256px;
+    height: auto;
+}
+
+footer > a
+{
+    color: var(--text-color-heading);
+    text-decoration: underline;
+    font-weight: bold;
+}

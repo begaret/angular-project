@@ -1,14 +1,12 @@
-*
-{
-  font-family: monospace;
-  color: white;
-}
+@import '../data.css';
 
-.content
+div
 {
   min-width: 100vw;
   min-height: 100vh;
 
-  background-color: black;
-  margin: 0 auto;
+  background-color: var(--bg-color-content);
+
+  display: flex;
+  flex-direction: column;
 }
