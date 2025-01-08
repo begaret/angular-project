@@ -6,11 +6,11 @@ footer
     margin-top: auto;
     background-color: var(--bg-color-footer);
 
-    width: auto;
+    /* width: auto; */
     height: 8rem;
 
     font-size: smaller;
-	
+
 	padding: 8px;
 
     display: flex;

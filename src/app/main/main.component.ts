@@ -17,16 +17,20 @@ import {
 })
 export class MainComponent {
   store: Firestore = inject(Firestore);
-  test: Observable<Test[]>;
+  courses: Observable<Course[]>;
 
   constructor()
   {
-    const coll = collection(this.store, 'test');
-    this.test = collectionData(coll) as Observable<Test[]>;
+    const data = collection(this.store, 'test');
+    this.courses = collectionData(data) as Observable<Course[]>;
   }
 }
 
-interface Test
+interface Course
 {
-  test: string;
+  code: string;
+  name: string;
+  students: number;
+  grade: string;
 };
+
