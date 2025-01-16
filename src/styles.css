@@ -3,3 +3,23 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+/* variables */
+:root
+{
+	--bg-color-header: #ffe500;
+	--bg-color-footer: #ffe500;
+	--bg-color-main: #ffffff;
+	--bg-color-content: #ffffff;
+
+	--logo-border-color: #000;
+	--border-color: #dee2e6;
+
+	--text-color-heading: #000;
+	--text-color-main: #000;
+	--text-color-active: #fff;
+	--text-color-inactive: #000;
+
+	--logo-filter: invert(1);
+	--text-shadow: none;
+}
+

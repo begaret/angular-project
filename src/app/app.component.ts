@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -14,25 +15,18 @@ import {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AsyncPipe, MatSlideToggleModule],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    MainComponent,
+    MatSlideToggleModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'snalla_funka';
-
-  store: Firestore = inject(Firestore);
-  test: Observable<Test[]>;
-
-  constructor()
-  {
-    const coll = collection(this.store, 'test');
-    this.test = collectionData(coll) as Observable<Test[]>;
-  }
-}
-
-interface Test
+export class AppComponent
 {
-  test: string;
+  title = 'snalla_funka';
 }
 
