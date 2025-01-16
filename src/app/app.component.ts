@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+
 import { RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
+// import { MainComponent } from './main/main.component';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -19,7 +20,6 @@ import {
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    MainComponent,
     MatSlideToggleModule
   ],
   templateUrl: './app.component.html',
