@@ -8,3 +8,11 @@ import { Component } from '@angular/core';
 })
 export class StudentComponent {}
 
+interface Course
+{
+  code: string;
+  name: string;
+  students: number;
+  grade: string;
+}
+

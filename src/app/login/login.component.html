@@ -1,1 +1,29 @@
-<p>login works!</p>
+<mat-card>
+  @if (should_sign_up) {
+    <h1>Sign Up</h1>
+    <form [formGroup]="signup_form" (ngSubmit)="on_submit(signup_form)">
+      <label for="name">Name:</label>
+      <input id="name" type="name" formControlName="name" />
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" />
+      <button type="submit" [disabled]="signup_form.invalid">
+        Sign up
+      </button>
+    </form>
+  } @else {
+    <h1>Log In</h1>
+    <form [formGroup]="login_form" (ngSubmit)="on_submit(login_form)">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" />
+      <button type="submit" [disabled]="login_form.invalid">
+        Log In
+      </button>
+    </form>
+  }
+
+  <button type="submit" (click)="switch_method()">sign up</button>
+</mat-card>
