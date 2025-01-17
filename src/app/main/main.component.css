@@ -1,0 +1,66 @@
+main
+{
+    min-height: calc(100vh - 12rem);
+    height: auto;
+
+    margin: 0 20%;
+    padding: 0 5%;
+
+    padding-top: 5rem;
+
+    background-color: var(--bg-color-main);
+    text-shadow: var(--text-shadow);
+}
+
+main > h1
+{
+    font-size: xx-large;
+
+    border-bottom: thin solid var(--border-color);
+    margin-bottom: 8px;
+
+    color: var(--text-color-heading);
+}
+
+main > h2
+{
+    font-size: large;
+
+    margin-bottom: 8px;
+
+    color: var(--text-color-heading);
+}
+
+main > p
+{
+    font-size: medium;
+
+    word-break: break-word;
+    line-height: 1.2;
+    margin-top: 0px;
+}
+
+main > img
+{
+    width: 100%;
+    height: auto;
+
+    margin-bottom: 1rem;
+}
+
+main > ul
+{
+    padding: 0;
+}
+
+.course
+{
+    list-style-type: none;
+
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+
+    border: thin solid var(--border-color);
+    border-radius: 8px;
+}
+

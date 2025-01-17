@@ -1,0 +1,15 @@
+<main>  <!-- ev. flytta innehåll i <main> till egen component & lägg <router-outlet /> i main? -->
+    <h1>Welcome to Moodle 1.04</h1>
+    <img class="banner" src="Teknik-vt21.jpg" alt="">
+
+    <h2>Courses</h2>
+    <ul>
+      @for (course of (courses | async); track course) {
+        <li class="course">
+          <div><b>{{course.code}} - {{course.name}}</b></div>
+          <div><i>{{course.students}} students, {{course.grade}}</i></div>
+        </li>
+      }
+    </ul>
+</main>
+
