@@ -1,0 +1,52 @@
+h1
+{
+    font-size: xx-large;
+
+    border-bottom: thin solid var(--border-color);
+    margin-bottom: 8px;
+
+    color: var(--text-color-heading);
+}
+
+h2
+{
+    font-size: large;
+
+    margin-bottom: 8px;
+
+    color: var(--text-color-heading);
+}
+
+p
+{
+    font-size: medium;
+
+    word-break: break-word;
+    line-height: 1.2;
+    margin-top: 0px;
+}
+
+img
+{
+    width: 100%;
+    height: auto;
+
+    margin-bottom: 1rem;
+}
+
+ul
+{
+    padding: 0;
+}
+
+.course
+{
+    list-style-type: none;
+
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+
+    border: thin solid var(--border-color);
+    border-radius: 8px;
+}
+

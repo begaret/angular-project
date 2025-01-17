@@ -6,7 +6,7 @@ header
     width: 100%;
     height: 4rem;
 
-	padding: 0px;
+    padding: 0px;
 
     position: fixed;
     top: 0;
@@ -22,7 +22,7 @@ header
     padding: 0px 16px;
     margin: 12px 0px;
 
-    border-right: thin solid var(--logo-border-color);
+    /* border-right: thin solid var(--logo-border-color); */
 }
 
 .logo > img

@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 
-import { MainComponent } from './main/main.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { StudentComponent } from './student/student.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'main', component: WelcomeComponent },
   { path: 'student', component: StudentComponent },
-  { path: '**', redirectTo: '/main' }
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '/login' }
 ];
 
