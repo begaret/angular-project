@@ -10,14 +10,15 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import {
-  Firestore,
-  collection,
-  collectionData,
-  addDoc,
-} from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+
+import { DataManagerService } from '../data-manager.service';
+import { LoginService } from '../login.service';
 
 import { MatCardModule } from '@angular/material/card';
+
+import { Course } from '../course.model';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-login',
@@ -29,16 +30,17 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent
+{
+  data_mgr: DataManagerService = inject(DataManagerService);
+  login: LoginService = inject(LoginService);
+
   should_sign_up = false;
 
   login_form: FormGroup;
   signup_form: FormGroup;
 
-  store: Firestore = inject(Firestore);
-  data: any;
-
-  constructor(private fb: FormBuilder)
+  constructor(private router: Router, private fb: FormBuilder)
   {
     this.login_form = this.fb.group(
       {
@@ -54,8 +56,6 @@ export class LoginComponent {
         password: [ '', [ Validators.required, Validators.minLength(6) ] ]
       }
     );
-
-    this.data = collection(this.store, 'users');
   }
 
   on_submit(active_form: FormGroup): void
@@ -67,43 +67,43 @@ export class LoginComponent {
       return;
     }
 
+    let user = new User(
+      active_form.value.name,
+      active_form.value.email,
+      "Sweden",
+      "Växjö",
+      active_form.value.password
+    );
+
+    let result = null;
+
     // sign up
     if (this.should_sign_up)
     {
-      let new_user: User = {
-        name: active_form.value.name,
-        email: active_form.value.email,
-        country: 'Sweden',
-        city: 'Växjö',
-        password: active_form.value.password,
-      };
-
-      this.add_to_firestore(new_user);
+      result = this.data_mgr.set_user(user);
     }
-  }
-
-  async add_to_firestore(data: any): Promise<void>
-  {
-    try {
-      const doc = await addDoc(this.data, data);
-      console.log("id: ", doc.id);
-    } catch (error) {
-      console.log("error: ", error);
+    else
+    {
+      result = this.data_mgr.get_user(user);
     }
+
+    result
+      .then((value) => {
+        if (value === null)
+        {
+          active_form.reset();
+        }
+        else
+        {
+          this.login.user = value;
+          this.router.navigate(['/student']);
+        }
+      });
   }
 
   switch_method(): void
   {
     this.should_sign_up = !this.should_sign_up;
   }
-}
-
-interface User
-{
-  name: string;
-  email: string;
-  country: string;
-  city: string;
-  password: string;
 }
 

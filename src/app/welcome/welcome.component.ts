@@ -15,7 +15,8 @@ import {
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'
 })
-export class WelcomeComponent {
+export class WelcomeComponent
+{
   store: Firestore = inject(Firestore);
   courses: Observable<Course[]>;
 

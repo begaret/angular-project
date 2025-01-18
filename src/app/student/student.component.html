@@ -1,21 +1,26 @@
+@if (login.user === null)
+{
+}
+@else
+{
 <div class="user-head">
-  <div class="user-profile">OE</div>
-    <h3>Olof Ellestad</h3>
+  <div class="user-profile">{{ get_user_profile() }}</div>
+  <h3>{{ login.user.name }}</h3>
   </div>
   <div class="user-body">
     <div class="user-element">
       <table>
         <tr>
           <th>E-mail</th>
-          <td>sjdnskld</td>
+          <td>{{ login.user.email }}</td>
         </tr>
         <tr>
           <th>Country</th>
-          <td>Sweden</td>
+          <td>{{ login.user.country }}</td>
         </tr>
         <tr>
           <th>City</th>
-          <td>Växjö</td>
+          <td>{{ login.user.city }}</td>
         </tr>
         <tr>
           <th>Time zone</th>
@@ -32,3 +37,4 @@
       </ul>
     </div>
 </div>
+}
