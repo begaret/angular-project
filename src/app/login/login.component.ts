@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 
 import { DataManagerService } from '../data-manager.service';
 import { LoginService } from '../login.service';
+import { AuthService } from '../auth.service';
 
 import { MatCardModule } from '@angular/material/card';
 
@@ -34,6 +35,7 @@ export class LoginComponent
 {
   data_mgr: DataManagerService = inject(DataManagerService);
   login: LoginService = inject(LoginService);
+  auth: AuthService = inject(AuthService);
 
   should_sign_up = false;
 
@@ -80,6 +82,12 @@ export class LoginComponent
     // sign up
     if (this.should_sign_up)
     {
+      if (!this.auth.is_logged_in)
+      {
+        active_form.reset();
+        return;
+      }
+
       result = this.data_mgr.set_user(user);
     }
     else
