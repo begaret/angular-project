@@ -1,0 +1,41 @@
+mat-card
+{
+  background-color: var(--bg-color-header);
+  padding: 8px;
+}
+
+h1
+{
+    font-size: large;
+
+    /* border-bottom: thin solid #323032; */
+    border-bottom: thin solid var(--text-color-heading);
+    margin-bottom: 8px;
+
+    color: var(--text-color-heading);
+}
+
+form
+{
+    margin: 1rem;
+
+    height: auto;
+
+    display: grid;
+
+    grid-template: 1fr / 1fr 1fr;
+}
+
+form > label, input, button
+{
+    margin: 1rem 0;
+}
+
+@media screen and (max-width: 600px)
+{
+    form > label, input, button
+    {
+        width: 100%;
+    }
+}
+

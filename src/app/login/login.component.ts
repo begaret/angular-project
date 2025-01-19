@@ -8,6 +8,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
+
 import { Observable } from 'rxjs';
 
 import { Router } from '@angular/router';
@@ -84,6 +85,7 @@ export class LoginComponent
     {
       if (!this.auth.is_logged_in)
       {
+        console.log("not logged in!");
         active_form.reset();
         return;
       }

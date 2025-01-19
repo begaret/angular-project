@@ -71,11 +71,20 @@ export class DataManagerService
   {
     try
     {
-      const doc = await addDoc(this.user_data, user);
+      let user_raw = {
+        name: user.name,
+        email: user.email,
+        country: user.country,
+        city: user.city,
+        password: user.password
+      };
+
+      const doc = await addDoc(this.user_data, user_raw);
       return user;
     }
     catch (error)
     {
+      console.log("addDoc error: ", error);
       return null;
     }
 
