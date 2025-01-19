@@ -33,7 +33,7 @@ export class AuthService
       const user = await createUserWithEmailAndPassword(this.auth, email, password);
       this.user = user;
       this.cant_log_in = false;
-      this.router.navigate(['/login']);
+      this.router.navigate(['/main']);
     }
     catch (error)
     {
