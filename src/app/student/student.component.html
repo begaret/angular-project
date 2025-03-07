@@ -6,8 +6,9 @@
 <div class="user-head">
   <div class="user-profile">{{ get_user_profile() }}</div>
   <h3>{{ login.user.name }}</h3>
-  </div>
-  <div class="user-body">
+  <button (click)="delete_user_profile()">delete</button>
+</div>
+<div class="user-body">
     <div class="user-element">
       <table>
         <tr>

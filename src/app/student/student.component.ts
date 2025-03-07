@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
 
 import { LoginService } from '../login.service';
+import { AuthService } from '../auth.service';
+import { DataManagerService } from '../data-manager.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -11,6 +15,11 @@ import { LoginService } from '../login.service';
 export class StudentComponent
 {
   login: LoginService = inject(LoginService);
+  auth: AuthService = inject(AuthService);
+  data_mgr: DataManagerService = inject(DataManagerService);
+
+  constructor(private router: Router)
+  {}
 
   get_user_profile(): string
   {
@@ -29,6 +38,16 @@ export class StudentComponent
     }
 
     return result;
+  }
+
+  delete_user_profile(): void
+  {
+    if (this.login.user === null)
+      return;
+
+    this.data_mgr.delete_user(this.login.user);
+    this.login.user = null;
+    this.router.navigate(['/login']);
   }
 }
 

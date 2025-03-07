@@ -1,11 +1,11 @@
 <mat-card>
   @if (type)
   {
-    <h1>Sign In</h1>
+    <h1>Auth - Sign In</h1>
   }
   @else
   {
-    <h1>Sign Up</h1>
+    <h1>Auth - Sign Up</h1>
   }
     <form [formGroup]="form" (ngSubmit)="on_submit()">
       <label for="email">Email:</label>

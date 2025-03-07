@@ -7,6 +7,8 @@ import {
   collection,
   collectionData,
   addDoc,
+  doc,
+  deleteDoc,
   query,
   where,
   getDocs,
@@ -89,6 +91,25 @@ export class DataManagerService
     }
 
     return null;
+  }
+
+  async delete_user(user: User): Promise<void>
+  {
+   const q = query(
+        this.user_data,
+        where("email", "==", user.email),
+        where("password", "==", user.password)
+      );
+
+    const snapshot = await getDocs(q);
+
+    if (snapshot.empty)
+    {
+      console.log("snapshot is empty")
+      return;
+    }
+
+    await deleteDoc(doc(this.store, "users", snapshot.docs[0].id));
   }
 }
 
